@@ -18,4 +18,4 @@ const addToStoreReadList = (id)=> {
         localStorage.setItem('read-list',storedListStr)
     }
 }
-export {addToStoreReadList}
+export {addToStoreReadList,getStoredReadList}

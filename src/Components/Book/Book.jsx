@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
 
 
 const Book = ({book}) => {
-     const {image, bookName, category, rating,author,tags} = book;
+     const {bookId, image, bookName, category, rating,author,tags} = book;
 
     return (
-        <div className="card bg-base-100 w-96 shadow-xl  border p-2">
+      <Link to={`/books/${bookId}`}>
+       <div className="card bg-base-100 w-96 shadow-xl  border p-2">
         <figure className="bg-gray-400 rounded-xl">
           <img className="  h-[166px] rounded-xl py-4"
             src={image}
@@ -13,7 +15,7 @@ const Book = ({book}) => {
         <div className="card-body space-y-2">
           <div className="flex  gap-14 ">
             {
-              tags.map(tag => <button className="btn bg-green-100 font-medium rounded-3xl text-green-600">{tag}</button>)
+              tags.map((tag, index) => <button key={index} className="btn bg-green-100 font-medium rounded-3xl text-green-600">{tag}</button>)
             }
           </div>
           <h2 className="card-title">
@@ -33,6 +35,7 @@ const Book = ({book}) => {
           </div>
         </div>
       </div>
+      </Link>
     );
 };
 
